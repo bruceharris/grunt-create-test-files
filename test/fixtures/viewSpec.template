@@ -1,0 +1,21 @@
+define(['${amdPath}'], ${capitalizedName}) {
+
+  describe('${amdPath}', function() {
+    var ${name};
+    beforeEach(function() {
+      ${name} = new ${capitalizedName}();
+    });
+    describe('constructor', function() {
+    });
+    describe('render', function() {
+      beforeEach(function() {
+        ${name}.render();
+      } )
+      it('returns self', function() {
+        expect(${name}.render()).to.equal(${name});
+      });
+    });
+
+  });
+  
+});
