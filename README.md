@@ -1,6 +1,7 @@
 # grunt-create-test-files
 
-> Creates a test file efrom a template for every source file
+> Creates a template based test file for every source file
+
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
