@@ -37,7 +37,7 @@
     "grunt": "~0.4.2"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin dynamically create test spec files"
   ],
   "dependencies": {
     "lodash": "~2.4.1"
