@@ -1,4 +1,7 @@
-define(['${amdPath}'], ${capitalizedName}) {
+// path: ${path}
+// filename: ${filename}
+define(['${amdPath}'], function(${capitalizedName}) {
+  'use strict';
 
   describe('${amdPath}', function() {
     var ${name};

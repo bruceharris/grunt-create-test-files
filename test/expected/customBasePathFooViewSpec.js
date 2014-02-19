@@ -1,4 +1,7 @@
-define(['foo/fooView'], FooView) {
+// path: foo/fooView.js
+// filename: fooView.js
+define(['foo/fooView'], function(FooView) {
+  'use strict';
 
   describe('foo/fooView', function() {
     var fooView;

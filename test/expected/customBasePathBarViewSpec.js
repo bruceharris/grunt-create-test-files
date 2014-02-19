@@ -1,4 +1,7 @@
-define(['barView'], BarView) {
+// path: barView.js
+// filename: barView.js
+define(['barView'], function(BarView) {
+  'use strict';
 
   describe('barView', function() {
     var barView;
