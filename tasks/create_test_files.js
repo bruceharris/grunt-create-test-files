@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     var options = this.options({
       destinationBasePath: 'test/',
       testFileSuffix: 'Spec.js',
-      basePath: './'
+      basePath: 'main/'
     });
 
     if (!options.templateFile) {

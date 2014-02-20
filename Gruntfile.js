@@ -33,7 +33,8 @@ module.exports = function(grunt) {
       default_options: {
         options: {
           templateFile: 'test/fixtures/viewSpec.template',
-          destinationBasePath: 'tmp/'
+          destinationBasePath: 'tmp/',
+          basePath: './'
         },
         files: {
           src: 'test/fixtures/**/*View.js'
