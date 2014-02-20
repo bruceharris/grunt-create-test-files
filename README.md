@@ -2,6 +2,13 @@
 
 > Creates a template based test file for every source file
 
+The purpose of this grunt plugin is to dynamically create a test file for each JavaScript source file that is added to your project. The generated test file is based on a [lodash template](http://lodash.com/docs#template) that you provide, into which several properties based on the filename/path are made available for substitition. The path of the generated file will correspond to the directory structure of your source code tree. If necessary, new directories in your test tree will be created.
+
+Recommended usage is to include this task in your grunt-contrib-watch tasks so test files will be created automatically as source files are added.
+
+Test files are only generated if a file with the target path does not exist; existing test files will not be replaced.
+
+Note, you can specify different templates for different filename patterns, e.g. in a MV* project you may want a specific test template for view files that construct, render, etc. whereas for models or collections you may want a test template with a different pattern.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
@@ -26,11 +33,15 @@ In your project's Gruntfile, add a section named `create_test_files` to the data
 ```js
 grunt.initConfig({
   create_test_files: {
-    options: {
-      // Task-specific options go here.
-    },
     your_target: {
-      // Target-specific file lists and/or options go here.
+      options: {
+        templateFile: 'path/to/your/template.file',
+        destinationsourceBasePath: 'root/path/of/test/dir/',
+        sourceBasePath: 'root/path/of/src/dir/'
+      },
+      files: {
+        src: 'glob/pattern/to/src/files/relative/to/sourceBasePath/option/e/g/**/*.js'
+      }
     },
   },
 });
@@ -38,17 +49,23 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.templateFile
 Type: `String`
-Default value: `',  '`
+*Required*
 
-A string value that is used to do something with whatever.
+Path to the template to use to generate test files. File will be processed as a [lodash template](http://lodash.com/docs#template); the following properties (describing the source file under test) are provided to the template for substitution:
 
-#### options.punctuation
+* `path`: full path (relative to `sourceBasePath` option) and filename
+* `amdPath`: same as `path` with `*.js` suffix truncated
+* `filename`: full filename without path
+* `name`: name, filename with `*.js` suffix truncated
+* `capitalizedName`: 
+
+#### options.sourceBasePath
 Type: `String`
-Default value: `'.'`
+Default value: `'test/'`
 
-A string value that is used to do something else with whatever else.
+The path to the root directory of where generated files will be created. The paths of the generated files, relative to this directory, will match the path of the corresponding source file, relative to the `basePath` option.
 
 ### Usage Examples
 
