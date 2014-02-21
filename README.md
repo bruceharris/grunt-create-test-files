@@ -39,10 +39,10 @@ grunt.initConfig({
       options: {
         templateFile: 'path/to/your/template.file',
         destinationBasePath: 'root/path/of/test/dir/',
-        basePath: 'root/path/of/src/dir/'
+        sourceBasePath: 'root/path/of/src/dir/'
       },
       files: {
-        src: 'glob/pattern/to/src/files/relative/to/basePath/option/e/g/**/*.js'
+        src: 'glob/pattern/to/src/files/relative/to/sourceBasePath/option/e/g/**/*.js'
       }
     },
   },
@@ -57,7 +57,7 @@ Type: `String`
 
 Path to the template to use to generate test files. File will be processed as a [lodash template](http://lodash.com/docs#template); the following properties (describing the source file under test) are provided to the template for substitution:
 
-* `path` full path (relative to `basePath` option) and filename of file under test
+* `path` full path (relative to `sourceBasePath` option) and filename of file under test
 * `amdPath` same as `path` with `*.js` suffix truncated
 * `filename` filename, without path, of file under test
 * `name` filename, without path, with `*.js` suffix truncated, of file under test
@@ -67,9 +67,9 @@ Path to the template to use to generate test files. File will be processed as a 
 Type: `String`
 Default value: `'test/'`
 
-The path to the root directory of where generated files will be created. The paths of the generated files, relative to this directory, will match the path of the corresponding source file, relative to the `basePath` option.
+The path to the root directory of where generated files will be created. The paths of the generated files, relative to this directory, will match the path of the corresponding source file, relative to the `sourceBasePath` option.
 
-#### options.basePath
+#### options.sourceBasePath
 Type: `String`
 Default value: `'main/'`
 

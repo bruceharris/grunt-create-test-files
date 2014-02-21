@@ -34,7 +34,7 @@ module.exports = function(grunt) {
         options: {
           templateFile: 'test/fixtures/spec.template',
           destinationBasePath: 'tmp/',
-          basePath: './'
+          sourceBasePath: './'
         },
         files: {
           src: 'test/fixtures/**/*View.js'
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         options: {
           templateFile: 'test/fixtures/viewSpec.template',
           destinationBasePath: 'tmp/',
-          basePath: 'test/fixtures/',
+          sourceBasePath: 'test/fixtures/',
           testFileSuffix: 'Test.js'
         },
         files: {
