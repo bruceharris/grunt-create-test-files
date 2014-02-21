@@ -1,7 +1,7 @@
 {
   "name": "grunt-create-test-files",
   "description": "Creates a template based test file for every source file",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/bruce.harris/grunt-create-test-files",
   "author": {
     "name": "Bruce Harris",
