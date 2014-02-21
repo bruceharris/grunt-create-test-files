@@ -84,7 +84,8 @@ The filename of the generated test file is created by taking the name of the cor
 ### Usage Examples
 
 #### Default Options
-This example assumes a file directory structure such as the below:
+
+Given a file directory structure such as the below:
 ```
 /
 |-- Gruntfile.js
@@ -102,10 +103,7 @@ This example assumes a file directory structure such as the below:
         +-- fooModelSpec.js
 ```
 
-If `indexSpec.js` does not yet exist, it will be created. If the `test/models` directory does not yet exist, it will be created. Likewise for `fooModelSpec.js`
-
-
-Given the configuration below:
+And the configuration below:
 ```js
 grunt.initConfig({
   create_test_files: {
@@ -122,7 +120,7 @@ grunt.initConfig({
 });
 ```
 
-... and the content of `spec.template` as below:
+And the content of `spec.template` as below:
 ```
 // path: ${path}
 // filename: ${filename}
@@ -142,7 +140,10 @@ define(['${amdPath}'], function(${capitalizedName}) {
 });
 ```
 
-... the content of generated file `fooModelSpec.js` would look like:
+If `indexSpec.js` does not yet exist, it will be created. If the `test/models` directory does not yet exist, it will be created. Likewise for `fooModelSpec.js`
+
+
+The content of generated file `fooModelSpec.js` would look like:
 ```js
 // path: test/fixtures/foo/fooView.js
 // filename: fooView.js
