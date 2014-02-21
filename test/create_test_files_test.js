@@ -45,19 +45,19 @@ exports.create_test_files = {
 
     test.done();
   },
-  custom_basePath_fooView: function(test) {
+  custom_suffix_fooView: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/foo/fooViewSpec.js');
+    var actual = grunt.file.read('tmp/foo/fooViewTest.js');
     var expected = grunt.file.read('test/expected/customBasePathFooViewSpec.js');
     test.equal(actual, expected, 'should match expected for customBasePathFooViewSpec');
 
     test.done();
   },
-  custom_basePath_barView: function(test) {
+  custom_suffix_barView: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/barViewSpec.js');
+    var actual = grunt.file.read('tmp/barViewTest.js');
     var expected = grunt.file.read('test/expected/customBasePathBarViewSpec.js');
     test.equal(actual, expected, 'should match expected for customBasePathBarViewSpec');
 

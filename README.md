@@ -61,7 +61,7 @@ Path to the template to use to generate test files. File will be processed as a 
 * `name`: filename, without path, with `*.js` suffix truncated, of file under test
 * `capitalizedName`: same as `name` with uppercase first character
 
-#### options.sourceBasePath
+#### options.destinationBasePath
 Type: `String`
 Default value: `'test/'`
 
@@ -73,36 +73,90 @@ Default value: `'main/'`
 
 The path to the root directory of the source files to be matched. The filename match pattern provided in the `files` parameter must be relative to this path.
 
+#### options.testFileSuffix
+Type: `String`
+Default value: `'Spec.js'`
+
+The filename of the generated test file is created by taking the name of the corresponding source file and replacing the trailing `'.js'` with the `testFileSuffix`. Thus with the default value, the test file for `main.js` will be named `mainSpec.js`
+
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+This example assumes a file directory structure such as the below:
+```
+/
+|-- Gruntfile.js
+|-- main/
+|   |-- index.js
+|   |-- models/
+|   |   +-- fooModel.js
+|   |
+|   +-- lib/
+|       +-- myFavoriteMvcLib.js
+|
++-- test/
+    |-- indexSpec.js
+    +-- models/
+        +-- fooModelSpec.js
+```
 
+If `indexSpec.js` does not yet exist, it will be created. If the `test/models` directory does not yet exist, it will be created. Likewise for `fooModelSpec.js`
+
+
+Given the configuration below:
 ```js
 grunt.initConfig({
   create_test_files: {
-    options: {},
+    options: {
+      templateFile: 'test/templates/spec.template',
+    },
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      src: [
+        'main/**/*.js',
+        '!main/lib/**/*.js'
+      ]
     },
   },
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+... and the content of `spec.template` as below:
+```
+// path: ${path}
+// filename: ${filename}
+define(['${amdPath}'], function(${capitalizedName}) {
+  'use strict';
 
+  describe('${amdPath}', function() {
+    var ${name};
+    beforeEach(function() {
+      ${name} = new ${capitalizedName}();
+    });
+    describe('constructor', function() {
+    });
+
+  });
+  
+});
+```
+
+... the content of generated file `fooModelSpec.js` would look like:
 ```js
-grunt.initConfig({
-  create_test_files: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+// path: test/fixtures/foo/fooView.js
+// filename: fooView.js
+define(['test/fixtures/foo/fooView'], function(FooView) {
+  'use strict';
+
+  describe('test/fixtures/foo/fooView', function() {
+    var fooView;
+    beforeEach(function() {
+      fooView = new FooView();
+    });
+    describe('constructor', function() {
+    });
+
+  });
+  
 });
 ```
 

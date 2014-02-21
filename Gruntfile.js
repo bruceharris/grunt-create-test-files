@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     create_test_files: {
       default_options: {
         options: {
-          templateFile: 'test/fixtures/viewSpec.template',
+          templateFile: 'test/fixtures/spec.template',
           destinationBasePath: 'tmp/',
           basePath: './'
         },
@@ -40,11 +40,12 @@ module.exports = function(grunt) {
           src: 'test/fixtures/**/*View.js'
         }
       },
-      custom_basePath: {
+      custom_suffix: {
         options: {
           templateFile: 'test/fixtures/viewSpec.template',
           destinationBasePath: 'tmp/',
-          basePath: 'test/fixtures/'
+          basePath: 'test/fixtures/',
+          testFileSuffix: 'Test.js'
         },
         files: {
           src: '**/*View.js'

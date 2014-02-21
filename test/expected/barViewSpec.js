@@ -10,14 +10,6 @@ define(['test/fixtures/barView'], function(BarView) {
     });
     describe('constructor', function() {
     });
-    describe('render', function() {
-      beforeEach(function() {
-        barView.render();
-      } )
-      it('returns self', function() {
-        expect(barView.render()).to.equal(barView);
-      });
-    });
 
   });
   
