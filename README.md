@@ -63,6 +63,8 @@ Path to the template to use to generate test files. File will be processed as a 
 * `name` filename, without path, with `*.js` suffix truncated, of file under test
 * `capitalizedName` same as `name` with uppercase first character
 
+Note, you may use these [sample templates](https://github.com/bruceharris/grunt-create-test-files/tree/master/sample_templates) (please issue a pull request to contribute your own).
+
 #### options.destinationBasePath
 Type: `String`
 Default value: `'test/'`
