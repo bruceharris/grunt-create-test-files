@@ -57,11 +57,11 @@ Type: `String`
 
 Path to the template to use to generate test files. File will be processed as a [lodash template](http://lodash.com/docs#template); the following properties (describing the source file under test) are provided to the template for substitution:
 
-* `path`: full path (relative to `basePath` option) and filename of file under test
-* `amdPath`: same as `path` with `*.js` suffix truncated
-* `filename`: filename, without path, of file under test
-* `name`: filename, without path, with `*.js` suffix truncated, of file under test
-* `capitalizedName`: same as `name` with uppercase first character
+* `path` full path (relative to `basePath` option) and filename of file under test
+* `amdPath` same as `path` with `*.js` suffix truncated
+* `filename` filename, without path, of file under test
+* `name` filename, without path, with `*.js` suffix truncated, of file under test
+* `capitalizedName` same as `name` with uppercase first character
 
 #### options.destinationBasePath
 Type: `String`
