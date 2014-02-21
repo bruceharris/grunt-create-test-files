@@ -147,15 +147,15 @@ If `indexSpec.js` does not yet exist, it will be created. If the `test/models` d
 
 The content of generated file `fooModelSpec.js` would look like:
 ```js
-// path: test/fixtures/foo/fooView.js
-// filename: fooView.js
-define(['test/fixtures/foo/fooView'], function(FooView) {
+// path: models/fooModel.js
+// filename: fooModel.js
+define(['models/fooModel'], function(FooModel) {
   'use strict';
 
-  describe('test/fixtures/foo/fooView', function() {
-    var fooView;
+  describe('models/fooModel', function() {
+    var fooModel;
     beforeEach(function() {
-      fooView = new FooView();
+      fooModel = new FooModel();
     });
     describe('constructor', function() {
     });
