@@ -4,7 +4,7 @@
 
 The purpose of this grunt plugin is to dynamically create a test file for each JavaScript source file that is added to your project. The generated test file is based on a [lodash template](http://lodash.com/docs#template) that you provide, into which several properties based on the filename/path are made available for substitition. The path of the generated file will correspond to the directory structure of your source code tree. If necessary, new directories in your test tree will be created.
 
-Recommended usage is to include this task in your grunt-contrib-watch tasks so test files will be created automatically as source files are added.
+Recommended usage is to include this task in your [grunt-contrib-watch](https://www.npmjs.org/package/grunt-contrib-watch) tasks so test files will be created automatically as source files are added.
 
 Test files are only generated if a file with the target path does not exist; existing test files will not be replaced.
 
