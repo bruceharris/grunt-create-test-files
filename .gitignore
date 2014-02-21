@@ -1,3 +1,5 @@
 node_modules
 npm-debug.log
 tmp
+
+test/fixtures/.DS_Store
