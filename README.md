@@ -1,8 +1,6 @@
-# grunt-create-test-files
+# grunt-create-test-files [![Build Status](https://travis-ci.org/bruceharris/grunt-create-test-files.png?branch=master)](https://travis-ci.org/bruceharris/grunt-create-test-files)
 
 > Creates a template based test file for every source file
-
-[![Build Status](https://travis-ci.org/bruceharris/grunt-create-test-files.png?branch=master)](https://travis-ci.org/bruceharris/grunt-create-test-files)
 
 The purpose of this grunt plugin is to dynamically create a test file for each JavaScript source file that is added to your project. The generated test file is based on a [lodash template](http://lodash.com/docs#template) that you provide, into which several properties based on the filename/path are made available for substitition. The path of the generated file will correspond to the directory structure of your source code tree. If necessary, new directories in your test tree will be created.
 
@@ -62,6 +60,8 @@ Path to the template to use to generate test files. File will be processed as a 
 * `filename` filename, without path, of file under test
 * `name` filename, without path, with `*.js` suffix truncated, of file under test
 * `capitalizedName` same as `name` with uppercase first character
+* `camelizedName` similar to `name`, but with dashes and underscores stripped and converted to camelCase
+* `capitalizedCamelizedName` same as `camelizedName` with uppercase first character
 
 Note, you may use these [sample templates](https://github.com/bruceharris/grunt-create-test-files/tree/master/sample_templates) (please issue a pull request to contribute your own).
 
@@ -169,4 +169,6 @@ define(['models/fooModel'], function(FooModel) {
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+
+* 2014-02-21 v0.1.1 initial release
+* 2014-02-21 v0.1.2 fix links in package.json
