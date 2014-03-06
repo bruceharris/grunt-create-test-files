@@ -172,3 +172,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 * 2014-02-21 v0.1.1 initial release
 * 2014-02-21 v0.1.2 fix links in package.json
+* 2014-03-05 v0.1.3 add template substitution for camelizedName and capitalizedCamelizedName
