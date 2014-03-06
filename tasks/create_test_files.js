@@ -11,6 +11,10 @@
 var _ = require('lodash'),
     camelize = require('camelize');
 
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 module.exports = function(grunt) {
 
   function truncateJsSuffix(name) {
@@ -44,14 +48,16 @@ module.exports = function(grunt) {
         }
       }).forEach(function(filepath) {
         var filename = _(filepath.split('/')).last(),
-            name = truncateJsSuffix(filename);
+            name = truncateJsSuffix(filename),
+            camelizedName = camelize(name);
         var file = {
           path: filepath,
           amdPath: truncateJsSuffix(filepath),
           filename: filename,
           name: name,
-          capitalizedName: name.charAt(0).toUpperCase() + name.slice(1),
-          camelizedName: camelize(name) 
+          capitalizedName: capitalize(name),
+          camelizedName: camelizedName,
+          capitalizedCamelizedName: capitalize(camelizedName)
         };
         var dest = options.destinationBasePath + filepath.replace(/\.js$/i, options.testFileSuffix);
         if (!grunt.file.exists(dest)) {

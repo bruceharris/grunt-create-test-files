@@ -1,1 +1,2 @@
 bazView
+BazView
