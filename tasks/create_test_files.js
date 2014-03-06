@@ -8,7 +8,8 @@
 
 'use strict';
 
-var _ = require('lodash');
+var _ = require('lodash'),
+    camelize = require('camelize');
 
 module.exports = function(grunt) {
 
@@ -49,7 +50,8 @@ module.exports = function(grunt) {
           amdPath: truncateJsSuffix(filepath),
           filename: filename,
           name: name,
-          capitalizedName: name.charAt(0).toUpperCase() + name.slice(1)
+          capitalizedName: name.charAt(0).toUpperCase() + name.slice(1),
+          camelizedName: camelize(name) 
         };
         var dest = options.destinationBasePath + filepath.replace(/\.js$/i, options.testFileSuffix);
         if (!grunt.file.exists(dest)) {

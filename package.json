@@ -40,6 +40,7 @@
     "gruntplugin dynamically create generate unit tdd test tests spec specs file files JavaScript"
   ],
   "dependencies": {
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "camelize": "~0.1.2"
   }
 }

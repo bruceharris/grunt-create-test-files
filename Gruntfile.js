@@ -50,6 +50,17 @@ module.exports = function(grunt) {
         files: {
           src: '**/*View.js'
         }
+      },
+      camelized: {
+        options: {
+          templateFile: 'test/fixtures/camelized.template',
+          destinationBasePath: 'tmp/',
+          sourceBasePath: 'test/fixtures/',
+          testFileSuffix: '-test.js'
+        },
+        files: {
+          src: '**/*.js'
+        }       
       }
     },
 

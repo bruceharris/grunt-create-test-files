@@ -62,5 +62,14 @@ exports.create_test_files = {
     test.equal(actual, expected, 'should match expected for customBasePathBarViewSpec');
 
     test.done();
+  },
+  camelized: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/baz-view-test.js');
+    var expected = grunt.file.read('test/expected/bazViewCamelizedSpec.js');
+    test.equal(actual, expected, 'should match expected for camelized');
+
+    test.done();
   }
 };
